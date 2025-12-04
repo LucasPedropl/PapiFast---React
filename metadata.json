@@ -1,0 +1,8 @@
+{
+  "name": "PapiFast React",
+  "description": "A comprehensive event management, coupon, and ticketing platform migrated from ASP.NET MVC to React.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ]
+}

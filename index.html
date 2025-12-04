@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PapiFast System</title>
+    <!-- Mantemos o Tailwind via CDN para preservar suas configurações customizadas de tema sem complexidade adicional -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                yellow: '#FFC107', // Material Amber 500
+                lightYellow: '#FFECB3', // Amber 100
+                darkYellow: '#FFA000', // Amber 700
+                orange: '#FF9800', // Orange 500
+                deepOrange: '#FF5722', // Deep Orange 500
+                dark: '#1f2937', // Gray 800
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              cursive: ['Pacifico', 'cursive'],
+            },
+            boxShadow: {
+              'soft': '0 10px 40px -10px rgba(0, 0, 0, 0.05)',
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+      }
+      
+      body {
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Global Input Reset to prevent dark inputs */
+      input, select, textarea {
+        background-color: #ffffff;
+        color: #1f2937; /* gray-800 */
+      }
+      input::placeholder, textarea::placeholder {
+        color: #9ca3af; /* gray-400 */
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "vite": "https://aistudiocdn.com/vite@^7.2.6",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
+  }
+}
+</script>
+</head>
+  <body class="bg-[#FFFDF7] text-gray-800">
+    <div id="root"></div>
+    <!-- Entry point para o Vite -->
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
