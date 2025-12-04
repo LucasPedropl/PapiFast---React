@@ -5,11 +5,21 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 export const Shell: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  // Initialize state from localStorage to remember user preference
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(() => {
+    const saved = localStorage.getItem('sidebarCollapsed');
+    return saved === 'true'; // Returns true if 'true', false otherwise (including null)
+  });
+
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const profileMenuRef = useRef<HTMLDivElement>(null);
+
+  // Persist sidebar state whenever it changes
+  useEffect(() => {
+    localStorage.setItem('sidebarCollapsed', String(sidebarCollapsed));
+  }, [sidebarCollapsed]);
 
   const handleLogout = () => {
     logout();
